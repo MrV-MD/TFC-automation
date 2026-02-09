@@ -101,9 +101,10 @@ Alex wants to move from Notion to a proper CRM. This could be a standalone app b
 - `email_templates` — Template library with reply rate tracking only.
 - `event_registrations` — Bridge table for who registered/attended which events.
 
-### Mock Seed Data (`02_seed_data.sql`) — v1.0, NEEDS UPDATE TO MATCH SCHEMA v2
-- Seed data still references v1 schema (has open tracking fields, old pricing columns)
-- **Action needed:** Regenerate seed data to match schema v2
+### Mock Seed Data (`02_seed_data.sql`) — v2.0, DRAFTED, NOT YET DEPLOYED
+- Updated to match schema v2: removed `engagement_score` from contacts, removed `total_opened` from campaigns, removed `opened_at` from outreach_log, changed status `'opened'` to `'sent'`
+- Added realistic `pricing` JSONB to all events (Delegation has 4 tiers, Connect Series has tier-specific pricing, Breakfast is free, Retreat shows discount structure, etc.)
+- 38 contacts, 8 events, 6 email templates, 1 active campaign with sample outreach logs
 
 ### Claude Project Setup
 - **Project name:** TFC Automation
@@ -120,7 +121,7 @@ Alex wants to move from Notion to a proper CRM. This could be a standalone app b
 - [x] Claude Project set up for ongoing collaboration
 - [x] Demo plan defined and prioritized
 - [x] Schema decisions finalized (all field-level reviews complete)
-- [ ] **Update seed data to match schema v2**
+- [x] **Update seed data to match schema v2**
 - [ ] Deploy schema and seed data to Supabase
 - [ ] Finalize open decisions (email provider, AI model, trigger type)
 - [ ] Design n8n Workflow 1: **Event Announcement Campaign**
